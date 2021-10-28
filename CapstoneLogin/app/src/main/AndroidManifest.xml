@@ -13,6 +13,9 @@
         android:theme="@style/Theme.CapstoneLogin"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".MainScreen"
+            android:exported="false" />
+        <activity
             android:name=".Registration"
             android:exported="false" />
         <activity

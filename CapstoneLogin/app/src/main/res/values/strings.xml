@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">CapstoneLogin</string>
+    <string name="label">label</string>
+    <string name="Email">Email</string>
+    <string name="Password">Password</string>
+    <string name="login">Login</string>
+    <string name="SignUp">Sign Up</string>
+    <string name="Fullname">Name (First and Last)</string>
+    <string name="page_title">Welcome!</string>
 </resources>

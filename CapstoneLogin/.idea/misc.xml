@@ -3,6 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Skyler.Fitzwater/Desktop/Repos/CapstoneAuthenticationFrontend/CapstoneLogin/app/src/main/res/drawable/google.xml" value="0.225" />
+        <entry key="..\:/Users/Skyler.Fitzwater/Desktop/Repos/CapstoneAuthenticationFrontend/CapstoneLogin/app/src/main/res/drawable/ic_login.xml" value="0.225" />
+        <entry key="..\:/Users/Skyler.Fitzwater/Desktop/Repos/CapstoneAuthenticationFrontend/CapstoneLogin/app/src/main/res/drawable/round_corner_button.xml" value="0.225" />
+        <entry key="..\:/Users/Skyler.Fitzwater/Desktop/Repos/CapstoneAuthenticationFrontend/CapstoneLogin/app/src/main/res/drawable/rounded_corner.xml" value="0.225" />
+        <entry key="..\:/Users/Skyler.Fitzwater/Desktop/Repos/CapstoneAuthenticationFrontend/CapstoneLogin/app/src/main/res/drawable/rounded_corner_button.xml" value="0.225" />
+        <entry key="..\:/Users/Skyler.Fitzwater/Desktop/Repos/CapstoneAuthenticationFrontend/CapstoneLogin/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/Skyler.Fitzwater/Desktop/Repos/CapstoneAuthenticationFrontend/CapstoneLogin/app/src/main/res/layout/activity_main_screen.xml" value="0.371875" />
+        <entry key="..\:/Users/Skyler.Fitzwater/Desktop/Repos/CapstoneAuthenticationFrontend/CapstoneLogin/app/src/main/res/layout/activity_registration.xml" value="0.371875" />
+        <entry key="..\:/Users/Skyler.Fitzwater/Desktop/Repos/CapstoneAuthenticationFrontend/CapstoneLogin/app/src/main/res/layout/appbar.xml" value="0.371875" />
+        <entry key="..\:/Users/Skyler.Fitzwater/Desktop/Repos/CapstoneAuthenticationFrontend/CapstoneLogin/app/src/main/res/menu/top_app_bar.xml" value="0.371875" />
         <entry key="..\:/Users/Skyler.Fitzwater/Desktop/Repos/CapstoneLogin/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/Skyler.Fitzwater/Desktop/Repos/CapstoneLogin/app/src/main/res/layout/activity_registration.xml" value="0.25" />
       </map>
