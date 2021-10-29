@@ -1,6 +1,5 @@
 package com.gamenode.capstonelogin
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -25,19 +24,14 @@ import com.google.gson.reflect.TypeToken
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.common.SignInButton
-import androidx.core.app.ActivityCompat.startActivityForResult
-import androidx.fragment.app.FragmentActivity
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.tasks.Task
 import com.google.android.gms.common.api.ApiException
 
 
-
-
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-// onCreate function - Page load up, and listeners for buttons
+// onCreate function - Page load up and listeners for buttons
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -47,30 +41,29 @@ var RC_SIGN_IN = 0
 
 class MainActivity : AppCompatActivity() {
 
-    @SuppressLint("CutPasteId")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        supportActionBar?.hide(); // hide the title bar
+        supportActionBar?.hide() // hide the title bar
         setContentView(R.layout.activity_main)
 
         val etEmail = findViewById<TextInputEditText>(R.id.email)
         val etPassword = findViewById<TextInputEditText>(R.id.password)
         val btnLogin = findViewById<Button>(R.id.buttonLogin)
         val btnRegister = findViewById<Button>(R.id.buttonRegister)
-        val v = findViewById<View>(R.id.myView)
 
-        val signin = findViewById<SignInButton>(R.id.sign_in_button)
+        val signIn = findViewById<SignInButton>(R.id.sign_in_button)
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestEmail()
             .build()
-        val mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        val mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        signin.setOnClickListener() {
+        signIn.setOnClickListener {
             signIn(mGoogleSignInClient)
         }
 
-        btnLogin.setOnClickListener() {
+        btnLogin.setOnClickListener {
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(findViewById<ContentFrameLayout>(android.R.id.content).windowToken, 0)
             val email = etEmail.text.toString()
@@ -87,12 +80,12 @@ class MainActivity : AppCompatActivity() {
                     val data = response.body()!!
                     //Log.d(TAG, data.email)
 
-                    val first_name = data.firstname.toString()
-                    val last_name = data.lastname.toString()
-                    val id = data.id.toString()
+                    val firstName = data.firstname
+                    val lastName = data.lastname
+                    val id = data.id
 
                     withContext(Dispatchers.Main) {
-                        login(first_name, last_name, id)
+                        login(firstName, lastName, id)
                     }
                 } else {
                     val gson = Gson()
@@ -112,7 +105,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        btnRegister.setOnClickListener() {
+        btnRegister.setOnClickListener {
             val intent = Intent(this, Registration::class.java)
             startActivity(intent)
         }
