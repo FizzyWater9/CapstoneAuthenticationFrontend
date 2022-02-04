@@ -2,8 +2,8 @@ package com.gamenode.capstonelogin.api
 
 data class loginjson(
     val email: String,
-    val firstname: String,
+    val firstName: String,
     val id: String,
-    val lastname: String,
+    val lastName: String,
     val password: String
 )

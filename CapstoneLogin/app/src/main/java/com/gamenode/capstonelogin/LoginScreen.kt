@@ -36,7 +36,7 @@ import com.google.android.gms.common.api.ApiException
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-const val BASE_URL = "http://gamenode.online"
+const val BASE_URL = "http://gamenode.online:8800"
 var RC_SIGN_IN = 0
 
 class MainActivity : AppCompatActivity() {
@@ -80,12 +80,12 @@ class MainActivity : AppCompatActivity() {
                     val data = response.body()!!
                     //Log.d(TAG, data.email)
 
-                    val firstName = data.firstname
-                    val lastName = data.lastname
+                    val firstname = data.firstName
+                    val lastname = data.lastName
                     val id = data.id
 
                     withContext(Dispatchers.Main) {
-                        login(firstName, lastName, id)
+                        login(firstname, lastname, id)
                     }
                 } else {
                     val gson = Gson()
@@ -121,8 +121,8 @@ class MainActivity : AppCompatActivity() {
     private fun login(firstname: String, lastname: String, id: String) {
         val intent = Intent(this, MainScreen::class.java)
         intent.putExtra("id", id)
-        intent.putExtra("firstname", firstname)
-        intent.putExtra("lastname", lastname)
+        intent.putExtra("firstName", firstname)
+        intent.putExtra("lastName", lastname)
         startActivity(intent)
     }
 

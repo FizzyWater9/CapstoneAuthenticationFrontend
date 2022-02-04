@@ -9,9 +9,9 @@ import retrofit2.http.Query
 
 interface ApiRequests {
 
-    @GET("/node/login")
+    @GET("/login")
     fun getLogin(@Query("email") email: String, @Query("password") password: String ): Call<loginjson>
 
-    @POST("/node/adduser")
+    @POST("/adduser")
     fun addUser(@Query("email") email: String, @Query("password") password: String, @Query("firstname") firstname: String, @Query("lastname") lastname: String): Call<userCreated>
 }

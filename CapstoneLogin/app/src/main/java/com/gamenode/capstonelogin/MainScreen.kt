@@ -11,8 +11,8 @@ class MainScreen : AppCompatActivity() {
         setContentView(R.layout.activity_main_screen)
 
         val intent = intent
-        val firstname = intent.getStringExtra("firstname")
-        val lastname = intent.getStringExtra("lastname")
+        val firstname = intent.getStringExtra("firstName")
+        val lastname = intent.getStringExtra("lastName")
         val id = intent.getStringExtra("id")
         val toolbar = findViewById<Toolbar>(R.id.myToolBar)
 
