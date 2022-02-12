@@ -9,5 +9,14 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     >
 
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="10dp"
+        android:text="@string/logout"
+        tools:ignore="RtlHardcoded" />
+
 
 </Toolbar>

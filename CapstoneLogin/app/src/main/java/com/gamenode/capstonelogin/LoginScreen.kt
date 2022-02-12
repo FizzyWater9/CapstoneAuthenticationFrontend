@@ -41,7 +41,6 @@ var RC_SIGN_IN = 0
 
 class MainActivity : AppCompatActivity() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide() // hide the title bar
@@ -51,8 +50,21 @@ class MainActivity : AppCompatActivity() {
         val etPassword = findViewById<TextInputEditText>(R.id.password)
         val btnLogin = findViewById<Button>(R.id.buttonLogin)
         val btnRegister = findViewById<Button>(R.id.buttonRegister)
-
         val signIn = findViewById<SignInButton>(R.id.sign_in_button)
+
+        val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        val autoLoginInfo = sharedPreference.getString("autologin", "default")
+        if (autoLoginInfo == "1") {
+            val intent = Intent(this, MainScreen::class.java)
+            val id = sharedPreference.getString("id", "default")
+            val firstname = sharedPreference.getString("firstName", "default")
+            val lastname = sharedPreference.getString("lastName", "default")
+            intent.putExtra("id", id)
+            intent.putExtra("firstName", firstname)
+            intent.putExtra("lastName", lastname)
+            startActivity(intent)
+        }
+
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestEmail()
@@ -123,6 +135,15 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra("id", id)
         intent.putExtra("firstName", firstname)
         intent.putExtra("lastName", lastname)
+
+        val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        val editor = sharedPreference.edit()
+        editor.putString("autologin", "1")
+        editor.putString("firstName", firstname)
+        editor.putString("lastName", lastname)
+        editor.putString("id", id)
+        editor.apply()
+
         startActivity(intent)
     }
 
@@ -162,6 +183,14 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("id", personId)
             intent.putExtra("firstname", personGivenName)
             intent.putExtra("lastname", personFamilyName)
+
+            val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+            val editor = sharedPreference.edit()
+            editor.putString("autologin", "1")
+            editor.putString("firstName", personGivenName)
+            editor.putString("lastName", personFamilyName)
+            editor.putString("id", personId)
+            editor.apply()
             startActivity(intent)
 
         } catch (e: ApiException) {
