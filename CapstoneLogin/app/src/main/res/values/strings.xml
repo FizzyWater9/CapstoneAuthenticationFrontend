@@ -7,4 +7,5 @@
     <string name="SignUp">Sign Up</string>
     <string name="Fullname">Name (First and Last)</string>
     <string name="page_title">Welcome!</string>
+    <string name="logout">Logout</string>
 </resources>
