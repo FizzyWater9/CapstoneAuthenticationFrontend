@@ -20,6 +20,10 @@ import retrofit2.Retrofit
 import retrofit2.awaitResponse
 import retrofit2.converter.gson.GsonConverterFactory
 import com.google.gson.reflect.TypeToken
+import android.util.Patterns
+import com.google.android.material.textfield.TextInputLayout
+import java.util.regex.Pattern
+
 
 class Registration : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,7 +49,13 @@ class Registration : AppCompatActivity() {
                 Snackbar.make(contextView, "Error: Email is required", Snackbar.LENGTH_LONG).show()
             } else if (password == "") {
                 Snackbar.make(contextView, "Error: Password is required.", Snackbar.LENGTH_LONG).show()
+            } else if (!isValidEmail(email)) {
+                Snackbar.make(contextView, "Error: Invalid email.", Snackbar.LENGTH_LONG).show()
+            } else if (!isValidPassword(password)) {
+                Snackbar.make(contextView, "Error: Minimum password requirements not met.",
+                        Snackbar.LENGTH_LONG).show()
             } else {
+
                 val delim = " ";
                 var nameList = name.split(delim)
                 nameList = nameList.plus("")
@@ -86,5 +96,24 @@ class Registration : AppCompatActivity() {
     private fun switchBack() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
+    }
+
+    //uses Pattern class to check for valid email
+    private fun isValidEmail(email: String): Boolean {
+        val pattern: Pattern = Patterns.EMAIL_ADDRESS
+        return pattern.matcher(email).matches()
+    }
+
+    //check for valid password meeting minimum requirements:
+    private fun isValidPassword(password: String): Boolean {
+        val passwordPattern = Pattern.compile("^" +
+            "(?=.*[0-9])" +         //at least 1 digit
+            "(?=.*[a-z])" +         //at least 1 lowercase letter
+            "(?=.*[A-Z])" +         //at least 1 upper case letter
+            "(?=.*[!@#$%^&+=])" +   //at least 1 special character
+            "(?=\\S+$)" +           //no white spaces
+            ".{6,}" +               //at least 6 characters
+            "$")
+        return passwordPattern.matcher(password).matches()
     }
 }
