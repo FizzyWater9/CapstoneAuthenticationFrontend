@@ -1,5 +1,6 @@
 package com.gamenode.capstonelogin
 
+import com.gamenode.capstonelogin.api.forgotPassword
 import com.gamenode.capstonelogin.api.loginjson
 import com.gamenode.capstonelogin.api.userCreated
 import retrofit2.Call
@@ -14,4 +15,7 @@ interface ApiRequests {
 
     @POST("/adduser")
     fun addUser(@Query("email") email: String, @Query("password") password: String, @Query("firstname") firstname: String, @Query("lastname") lastname: String): Call<userCreated>
+
+    @POST("/forgotpassword")
+    fun forgotPassword(@Query("email") email: String) : Call<forgotPassword>
 }

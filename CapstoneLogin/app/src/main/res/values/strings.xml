@@ -8,4 +8,18 @@
     <string name="Fullname">Name (First and Last)</string>
     <string name="page_title">Welcome!</string>
     <string name="logout">Logout</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="title_activity_forget_password">Name</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="confirm_email">Confirm Email</string>
+    <string name="button_send">button_send</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="loginTextView">Login:</string>
+    <string name="create_an_account">Create an Account:</string>
 </resources>

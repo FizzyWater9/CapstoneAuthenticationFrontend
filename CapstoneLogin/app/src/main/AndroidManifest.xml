@@ -13,6 +13,11 @@
         android:theme="@style/Theme.CapstoneLogin"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ForgetPassword"
+            android:exported="false"
+            android:label="@string/title_activity_forget_password"
+            android:theme="@style/Theme.CapstoneLogin.NoActionBar" />
+        <activity
             android:name=".MainScreen"
             android:exported="false" />
         <activity
