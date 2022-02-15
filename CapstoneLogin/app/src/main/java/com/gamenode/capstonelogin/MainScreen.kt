@@ -38,8 +38,5 @@ class MainScreen : AppCompatActivity() {
 
         }
 
-
-
-
     }
 }

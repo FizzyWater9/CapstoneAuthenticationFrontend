@@ -51,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         val btnLogin = findViewById<Button>(R.id.buttonLogin)
         val btnRegister = findViewById<Button>(R.id.buttonRegister)
         val signIn = findViewById<SignInButton>(R.id.sign_in_button)
+        val btnForgotPassword = findViewById<Button>(R.id.forgot_password)
 
         val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val autoLoginInfo = sharedPreference.getString("autologin", "default")
@@ -117,6 +118,11 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        btnForgotPassword.setOnClickListener {
+            val intent = Intent(this, ForgetPassword::class.java)
+            startActivity(intent)
+        }
+
         btnRegister.setOnClickListener {
             val intent = Intent(this, Registration::class.java)
             startActivity(intent)
@@ -181,8 +187,8 @@ class MainActivity : AppCompatActivity() {
             val personId = account.id
             val intent = Intent(this, MainScreen::class.java)
             intent.putExtra("id", personId)
-            intent.putExtra("firstname", personGivenName)
-            intent.putExtra("lastname", personFamilyName)
+            intent.putExtra("firstName", personGivenName)
+            intent.putExtra("lastName", personFamilyName)
 
             val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
             val editor = sharedPreference.edit()
