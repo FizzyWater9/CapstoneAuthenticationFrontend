@@ -8,6 +8,7 @@
     <string name="Fullname">Name (First and Last)</string>
     <string name="page_title">Welcome!</string>
     <string name="logout">Logout</string>
+    <string name="password_Helper">Must contain at least 6 characters including at least 1 letter, 1 number, and 1 symbol.</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>

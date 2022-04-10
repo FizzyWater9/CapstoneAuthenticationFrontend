@@ -33,27 +33,45 @@ class Registration : AppCompatActivity() {
 
 
         val btn_register = findViewById<Button>(R.id.registerpagebutton)
+        val tilPassword = findViewById<TextInputLayout>(R.id.tilPassword)
+        val tilName = findViewById<TextInputLayout>(R.id.tilName)
+        val tilEmail = findViewById<TextInputLayout>(R.id.tilEmail)
+        val etPassword = findViewById<EditText>(R.id.etpasswordregister)
 
         btn_register.setOnClickListener() {
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(findViewById<ContentFrameLayout>(android.R.id.content).windowToken, 0)
 
             val contextView = findViewById<View>(R.id.myView)
+
             var email = findViewById<TextInputEditText>(R.id.etemailregister).text.toString()
             var password = findViewById<TextInputEditText>(R.id.etpasswordregister).text.toString()
             var name = findViewById<TextInputEditText>(R.id.etfullname).text.toString()
 
+            tilName.setErrorEnabled(false)
+            tilEmail.setErrorEnabled(false)
+            tilPassword.setErrorEnabled(false)
+
             if (name == "") {
-                Snackbar.make(contextView, "Error: Name is required", Snackbar.LENGTH_LONG).show()
+                tilName.setErrorEnabled(true)
+                tilName.setError("Error: Name is required")
+//                Snackbar.make(contextView, "Error: Name is required", Snackbar.LENGTH_LONG).show()
             } else if (email == "") {
-                Snackbar.make(contextView, "Error: Email is required", Snackbar.LENGTH_LONG).show()
-            } else if (password == "") {
-                Snackbar.make(contextView, "Error: Password is required.", Snackbar.LENGTH_LONG).show()
+                tilEmail.setErrorEnabled(true)
+                tilEmail.setError("Error: Email is required")
+//                Snackbar.make(contextView, "Error: Email is required", Snackbar.LENGTH_LONG).show()
             } else if (!isValidEmail(email)) {
-                Snackbar.make(contextView, "Error: Invalid email.", Snackbar.LENGTH_LONG).show()
+                tilEmail.setErrorEnabled(true)
+                tilEmail.setError("Error: Please enter a valid email")
+//                Snackbar.make(contextView, "Error: Invalid email.", Snackbar.LENGTH_LONG).show()
             } else if (!isValidPassword(password)) {
-                Snackbar.make(contextView, "Error: Minimum password requirements not met.",
-                        Snackbar.LENGTH_LONG).show()
+                etPassword.setError("Must contain at least 6 characters including at least 1 letter, 1 number, and 1 symbol.")
+                etPassword.requestFocus()
+                tilPassword.setHelperTextEnabled(false)
+                tilPassword.setErrorEnabled(true)
+                tilPassword.setError("Error: Minimum password requirements not met")
+//                Snackbar.make(contextView, "Error: Minimum password requirements not met.",
+//                        Snackbar.LENGTH_LONG).show()
             } else {
 
                 val delim = " ";
@@ -108,8 +126,7 @@ class Registration : AppCompatActivity() {
     private fun isValidPassword(password: String): Boolean {
         val passwordPattern = Pattern.compile("^" +
             "(?=.*[0-9])" +         //at least 1 digit
-            "(?=.*[a-z])" +         //at least 1 lowercase letter
-            "(?=.*[A-Z])" +         //at least 1 upper case letter
+            "(?=.*[a-zA-Z])" +         //at least 1 letter
             "(?=.*[!@#$%^&+=])" +   //at least 1 special character
             "(?=\\S+$)" +           //no white spaces
             ".{6,}" +               //at least 6 characters
