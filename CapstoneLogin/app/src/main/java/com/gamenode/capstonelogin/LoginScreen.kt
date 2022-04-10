@@ -36,7 +36,7 @@ import com.google.android.gms.common.api.ApiException
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-const val BASE_URL = "http://gamenode.online:8800"
+const val BASE_URL = "https://gamenode.online:8801"
 var RC_SIGN_IN = 0
 
 class MainActivity : AppCompatActivity() {

@@ -9,71 +9,72 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+
     <TextView
         android:id="@+id/text_view_id"
-        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="200dp"
         android:layout_marginEnd="20dp"
+        android:text="@string/create_an_account"
         android:textColor="#6b03fc"
         android:textSize="20sp"
-        android:textStyle="bold"
-        android:text="@string/create_an_account" />
-
+        android:textStyle="bold" />
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilName"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
-        android:hint="@string/Fullname"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        android:hint="@string/Fullname">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etfullname"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilEmail"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
         android:hint="@string/Email"
-        app:startIconDrawable="@drawable/ic_baseline_email_24"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        app:startIconDrawable="@drawable/ic_baseline_email_24">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etemailregister"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilPassword"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
         android:hint="@string/Password"
         app:endIconMode="password_toggle"
-        app:startIconDrawable="@drawable/ic_baseline_lock_24"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        app:helperText="@string/password_Helper"
+        app:startIconDrawable="@drawable/ic_baseline_lock_24">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etpasswordregister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            />
+            android:inputType="textPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -81,7 +82,7 @@
         android:id="@+id/registerpagebutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="30dp"
         android:text="@string/SignUp"
         android:layout_gravity="center"
         />
